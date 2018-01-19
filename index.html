@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            <!--
+            #board {
+                border-collapse: collapse;
+            }
+            #board td {
+                width: 50px;
+                height: 50px;
+                border: 1px solid black;
+                background-color: green;
+            }
+            #board .black {
+                background-color: gray;
+            }
+            #board .white {
+                background-color: white;
+            }
+            -->
+        </style>
+    </head>
+    <body onload="init();">
+        <table id="board"></table>
+        <script src="model.js"></script>
+        <script src="view.js"></script>
+        <script src="controller.js"></script>
+        <script>
+            function init() {
+                var board_size = 6;
+                var model = model_init(board_size);
+                var view = view_init(model);
+                var controller = controller_init(model, view);
+            }
+        </script>
+    </body>
+</html>
