@@ -14,6 +14,27 @@ function view_render_board(view) {
         }
     }
 }
+function view_render_info(view) {
+    var num_pieces = new Array(view.model.player_num);
+    for(var i=0;i<view.model.player_num;++i) {
+        num_pieces[i] = 0;
+    }
+    for(var i=0;i<view.cell_array.length;++i) {
+        for(var j=0;j<view.cell_array[i].length;++j) {
+            if (view.model.cell_array[i][j]==0) {
+            } else {
+                var color = view.model.cell_array[i][j].color;
+                num_pieces[color-1] += 1;
+            }
+        }
+    }
+    var div = document.getElementById('info');
+    div.innerHTML = "<p>black:"+num_pieces[0]+" white:"+num_pieces[1]+"</p>";
+}
+function view_render(view) {
+    view_render_board(view);
+    view_render_info(view);
+}
 function view_init(model) {
     var view = {};
     view.model = model;
@@ -30,6 +51,6 @@ function view_init(model) {
         }
         view.board.appendChild(tr);
     }
-    view_render_board(view);
+    view_render(view);
     return view;
 }

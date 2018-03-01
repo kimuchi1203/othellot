@@ -5,7 +5,7 @@ function controller_add_listener(view) {
             td.onclick = (function(i, j){
                 return function(){
                     model_play(view.model, i, j);
-                    view_render_board(view);
+                    view_render(view);
                 };
             })(i, j);
         }
