@@ -2,10 +2,14 @@ function view_render_board(view) {
     for(var i=0;i<view.cell_array.length;++i) {
         for(var j=0;j<view.cell_array[i].length;++j) {
             var td = view.cell_array[i][j];
-            if (view.model.cell_array[i][j]==1) {
+            if (view.model.cell_array[i][j]==0) {
+                td.className = "empty"
+            } else if (view.model.cell_array[i][j].color==1) {
                 td.className = "black";
-            } else if (view.model.cell_array[i][j]==2) {
+                td.innerHTML = view.model.cell_array[i][j].name;
+            } else if (view.model.cell_array[i][j].color==2) {
                 td.className = "white";
+                td.innerHTML = view.model.cell_array[i][j].name;
             }
         }
     }
